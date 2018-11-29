@@ -22,6 +22,14 @@ public class Item {
         this.nama = nama;
         this.harga = harga;
         this.jumlah = jumlah;
+        switch (nama) {
+            case "Kopi" : this.harga = 10000;
+            break;
+            case "Gula" : this.harga = 30000;
+            break;
+            case "Susu" : this.harga = 20000;
+            break;
+        }
     }
     
     
