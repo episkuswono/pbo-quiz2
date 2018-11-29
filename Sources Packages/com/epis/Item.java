@@ -56,4 +56,7 @@ public class Item {
         this.jumlah = jumlah;
     }
     
+    public float getTotal(){
+        return this.harga * this.jumlah;
+    }
 }
