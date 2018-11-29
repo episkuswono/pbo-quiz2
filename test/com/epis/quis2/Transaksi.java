@@ -5,9 +5,20 @@
  */
 package com.epis.quis2;
 
+import java.util.*;
+import java.util.ArrayList;
+
 /**
  *
  * @author Epis Kuswono
  */
 public class Transaksi {
+    private final String kode;
+    private ArrayList<Item> items = new ArrayList<>();
+    private float total;
+    
+    public Transaksi(String kode, ArrayList<Item> items){
+        this.kode = kode;
+        this.items = items;
+    }
 }
