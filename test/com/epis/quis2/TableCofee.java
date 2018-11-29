@@ -28,4 +28,9 @@ public class TableCofee extends DefaultTableModel{
     public void setRowCount(int i){
         super.setRowCount(0);
     }
+    
+    @Override
+    public void addRow(Object[] os){
+        super.addRow(os);
+    }
 }
