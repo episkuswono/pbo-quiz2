@@ -13,4 +13,11 @@ import javax.swing.table.DefaultTableModel;
  */
 public class TableCofee extends DefaultTableModel{
     private String[] kolom;
+
+    public TableCofee() {
+        this.kolom = new String[] {
+            "Nama", "Harga", "Jumlah"
+        };
+    }
+    
 }
