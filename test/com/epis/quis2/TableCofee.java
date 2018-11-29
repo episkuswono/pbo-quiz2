@@ -33,4 +33,9 @@ public class TableCofee extends DefaultTableModel{
     public void addRow(Object[] os){
         super.addRow(os);
     }
+    
+    @Override
+    public void removeRow(int i){
+        super.removeRow(i);
+    }
 }
