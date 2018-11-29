@@ -23,4 +23,9 @@ public class TableCofee extends DefaultTableModel{
     public String[] getKolomNama(){
         return this.kolom;
     }
+    
+    @Override
+    public void setRowCount(int i){
+        super.setRowCount(0);
+    }
 }
