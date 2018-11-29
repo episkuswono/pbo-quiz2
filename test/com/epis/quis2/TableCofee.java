@@ -20,4 +20,7 @@ public class TableCofee extends DefaultTableModel{
         };
     }
     
+    public String[] getKolomNama(){
+        return this.kolom;
+    }
 }
