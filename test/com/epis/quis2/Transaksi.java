@@ -29,4 +29,16 @@ public class Transaksi {
         }
         this.total = total;
     }
+    
+    public String bayar(){
+        setTotal();
+        String out = "";
+        out += "Kode\t\t : " + this.kode + "\n";
+        out += "Daftar Belanja : \n";
+        for(Item item : this.items){
+            out += "\t" + item.getNama() + "(x" + item.getJumlah() + ") : " + item.getTotal() + "\n"; 
+        }
+        out += "Total\t\t : " + this.total;
+        return out;
+    }
 }
