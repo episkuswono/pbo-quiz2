@@ -9,5 +9,7 @@
  * @author Epis Kuswono
  */
 public class Item {
-    
+    private String nama;
+    private float harga;
+    private int jumlah;
 }
