@@ -12,7 +12,7 @@ package com.epis.quis2;
  */
 public class Item {
     private String nama;
-    private float harga;
+    private int harga;
     private int jumlah;
 
     public Item(String nama, int jumlah) {
@@ -20,7 +20,7 @@ public class Item {
         this.jumlah = jumlah;
     }
 
-    public Item(String nama, float harga, int jumlah) {
+    public Item(String nama, int harga, int jumlah) {
         this.nama = nama;
         this.harga = harga;
         this.jumlah = jumlah;
@@ -46,7 +46,7 @@ public class Item {
         return harga;
     }
 
-    public void setHarga(float harga) {
+    public void setHarga(int harga) {
         this.harga = harga;
     }
 
