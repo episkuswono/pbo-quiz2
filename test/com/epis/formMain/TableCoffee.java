@@ -40,6 +40,9 @@ public class TableCoffee extends javax.swing.JFrame {
      * Creates new form TableCoffee
      */
     public TableCoffee() {
+        //mendapatkan nama kolom
+        TableCofee tableModel = new TableCofee();
+        this.tableModel = new DefaultTableModel(tableModel.getKolomNama(), 0);
         initComponents();
     }
 
@@ -79,14 +82,7 @@ public class TableCoffee extends javax.swing.JFrame {
             }
         });
 
-        ItemsListTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
+        ItemsListTable.setModel(this.tableModel);
         jScrollPane1.setViewportView(ItemsListTable);
 
         SaveButton.setText("Save");
