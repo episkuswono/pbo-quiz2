@@ -7,7 +7,7 @@ package com.epis.quis2;
 
 import java.util.*;
 import java.util.ArrayList;
-
+import java.text.SimpleDateFormat;
 /**
  *
  * @author Epis Kuswono
@@ -25,7 +25,7 @@ public class Transaksi {
     public void setTotal(){
         float total = 0;
         for(Item item : this.items){
-            total = item.getTotal();
+            total += item.getTotal();
         }
         this.total = total;
     }
