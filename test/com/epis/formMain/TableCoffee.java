@@ -100,6 +100,18 @@ public class TableCoffee extends javax.swing.JFrame {
     private boolean isKosong(){
         return this.ItemsListTable.getModel().getRowCount() <= 0;
     }
+    
+    // matikan tombol remove dan save jika isi tabel kosong
+    private void dafbelanja(){
+        if (isKosong()) {
+            this.SaveButton.setEnabled(false);
+            this.RemoveButton.setEnabled(false);
+        }
+        else{
+            this.SaveButton.setEnabled(true);
+            this.RemoveButton.setEnabled(true);
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
