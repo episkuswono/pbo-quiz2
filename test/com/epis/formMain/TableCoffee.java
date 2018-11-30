@@ -192,6 +192,11 @@ public class TableCoffee extends javax.swing.JFrame {
         });
 
         AddButton.setText("Add");
+        AddButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddButtonActionPerformed(evt);
+            }
+        });
 
         RemoveButton.setText("Remove");
 
@@ -259,7 +264,8 @@ public class TableCoffee extends javax.swing.JFrame {
     }//GEN-LAST:event_ItemsComboBoxActionPerformed
 
     private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
-        // TODO add your handling code here:
+        newTransaksi() ;
+        this.kurangId();
     }//GEN-LAST:event_CancelButtonActionPerformed
 
     private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButtonActionPerformed
@@ -289,8 +295,32 @@ public class TableCoffee extends javax.swing.JFrame {
     }//GEN-LAST:event_SaveButtonActionPerformed
 
     private void NewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewButtonActionPerformed
-        
+        this.JumlahItemsText.setText ("1") ;
+        this.NewButton.setEnabled (false) ;
+        this.CancelButton.setEnabled (true) ;
+        this.AddButton.setEnabled (true) ;
+        this.JumlahItemsText.setEnabled (true) ;
+        this.ItemsComboBox.setEnabled (true) ;
+        this.CodeText.setText (this.setCode()) ;
     }//GEN-LAST:event_NewButtonActionPerformed
+
+    private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
+        String nama = this.ItemsComboBox.getSelectedItem().toString();
+        float harga = new Float (this.JumlahItemsText.getText()) ;
+        int jumlah  = new Integer(this.JumlahItemsText.getText());
+        Item item = new Item(nama , jumlah , (int) harga);
+        if(isDouble(nama)) {
+            updateJumlah(nama , jumlah);
+        } else {
+            Object[] obj = {
+                item.getNama(),
+                item.getHarga(),
+                item.getJumlah()
+            } ;
+            tableModel.addRow(obj);
+        }
+        this.belanja();
+    }//GEN-LAST:event_AddButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -341,4 +371,8 @@ public class TableCoffee extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+    private void belanja() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
