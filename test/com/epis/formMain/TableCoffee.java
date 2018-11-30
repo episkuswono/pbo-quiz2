@@ -199,6 +199,11 @@ public class TableCoffee extends javax.swing.JFrame {
         });
 
         RemoveButton.setText("Remove");
+        RemoveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -321,6 +326,23 @@ public class TableCoffee extends javax.swing.JFrame {
         }
         this.belanja();
     }//GEN-LAST:event_AddButtonActionPerformed
+
+    private void RemoveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveButtonActionPerformed
+        // ngecek apakah ada baris yang dipilih
+        if (ItemsListTable.getSelectedRow() <0) {
+            // jika tidak ada , maka akan muncul tulisan seperti ini
+            String sbr = "Pilih Item yang akan dihapus" ;
+            JOptionPane.showMessageDialog(this , sbr , "Information" , JOptionPane.INFORMATION_MESSAGE) ;  
+        } else {
+            // jika ada baris yg dipilih , maka baris tersebut akan dihapus
+            int count = ItemsListTable.getSelectedRows().length ;
+            for (int i = 0; i < count; i++) {
+                tableModel.removeRow(ItemsListTable.getSelectedRow()) ;
+            }
+            
+        }
+        this.belanja() ;
+    }//GEN-LAST:event_RemoveButtonActionPerformed
 
     /**
      * @param args the command line arguments
