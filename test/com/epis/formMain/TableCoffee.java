@@ -25,6 +25,7 @@ import java.util.* ;
 import javax.swing.JOptionPane ;
 import javax.swing.table.DefaultTableModel ;
 import com.epis.quis2.*;
+import java.text.SimpleDateFormat;
 public class TableCoffee extends javax.swing.JFrame {
     
     // ID untuk kode transaksi
@@ -54,6 +55,15 @@ public class TableCoffee extends javax.swing.JFrame {
     // method pengurangan id
     private void kurangId(){
         this.id -= 1;
+    }
+    
+    // fungsi setCode
+    private String setCode(){
+        this.tambahId();
+        // tanggal
+        String date = new SimpleDateFormat("yyMMdd").format(new Date());
+        this.code = String.format(date, "%02d", this.id);
+        return code;
     }
 
     /**
