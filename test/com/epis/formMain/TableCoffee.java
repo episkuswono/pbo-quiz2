@@ -1,7 +1,11 @@
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templa    @Override
+    pu    @Override
     public void actionPerformed(ActionEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+blic void actionPerformed(ActionEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     @Override
@@ -77,7 +81,7 @@ public class TableCoffee extends javax.swing.JFrame {
         for (int i = 0; i < item.size(); i++) {
             if (item.get(i).equals(nama)) {
                 int jumlah = new Integer(tableModel.getValueAt(i, 2).toString());
-                tableModel.setValueAt(+ add, i, 2);
+                tableModel.setValueAt(jumlah + add, i, 2);
             }
         }
     }
@@ -103,7 +107,7 @@ public class TableCoffee extends javax.swing.JFrame {
     }
     
     // matikan tombol remove dan save jika isi tabel kosong
-    private void dafbelanja(){
+    private void belanja(){
         if (isKosong()) {
             this.SaveButton.setEnabled(false);
             this.RemoveButton.setEnabled(false);
@@ -281,7 +285,7 @@ public class TableCoffee extends javax.swing.JFrame {
                 String nama = tableModel.getValueAt (i , 0).toString () ;
                 float harga = new Float (tableModel.getValueAt (0 , 1).toString()) ;
                 int jumlah = new Integer (tableModel.getValueAt (i , 2).toString()) ;
-                this.belanja.add (new Item(nama, jumlah , (int) harga)) ;   
+                this.belanja.add (new Item(nama, jumlah , harga)) ;   
             }
             // instansiasi kelas Transaksi dengan kode dan committed belanja
             Transaksi tsk = new Transaksi (this.code , this.belanja) ;
@@ -310,10 +314,11 @@ public class TableCoffee extends javax.swing.JFrame {
     }//GEN-LAST:event_NewButtonActionPerformed
 
     private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
+
         String nama = this.ItemsComboBox.getSelectedItem().toString();
-        float harga = new Float (this.JumlahItemsText.getText()) ;
+        int harga = new Integer (this.JumlahItemsText.getText()) ;
         int jumlah  = new Integer(this.JumlahItemsText.getText());
-        Item item = new Item(nama , jumlah , (int) harga);
+        Item item = new Item(nama, jumlah, harga);
         if(isDouble(nama)) {
             updateJumlah(nama , jumlah);
         } else {
@@ -341,7 +346,7 @@ public class TableCoffee extends javax.swing.JFrame {
             }
             
         }
-        this.belanja() ;
+        this.belanja();
     }//GEN-LAST:event_RemoveButtonActionPerformed
 
     /**
@@ -394,7 +399,4 @@ public class TableCoffee extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
-    private void belanja() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
