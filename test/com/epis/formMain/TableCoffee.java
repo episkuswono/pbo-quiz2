@@ -80,6 +80,21 @@ public class TableCoffee extends javax.swing.JFrame {
             }
         }
     }
+    
+    // sekarang mengecek jika ada item yang double pada item sebelumnya
+    private boolean isDouble(String nama){
+        boolean hasil = false;
+        ArrayList<String> item = new ArrayList<>();
+        for (int i = 0; i < tableModel.getRowCount(); i++) {
+            item.add(tableModel.getValueAt(i,0).toString());
+        }
+        for (String i : item) {
+            if (i.equals(nama)) {
+                hasil = true;
+            }
+        }
+        return hasil;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
