@@ -1,6 +1,18 @@
 /*
  * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template file, choose Tools | Templa    @Override
+    public void actionPerformed(ActionEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+tes
  * and open the template in the editor.
  */
 package com.epis.formMain;
@@ -9,7 +21,20 @@ package com.epis.formMain;
  *
  * @author Epis Kuswono
  */
+import java.util.* ;
+import javax.swing.JOptionPane ;
+import javax.swing.table.DefaultTableModel ;
+import com.epis.quis2.*;
 public class TableCoffee extends javax.swing.JFrame {
+    
+    // ID untuk kode transaksi
+    private int id = 0;
+    // kode transaksi
+    private String code;
+    // untuk combo box
+    private DefaultTableModel tableModel;
+    //menampilkan transaksi Item
+    private ArrayList<Item> belanja = new ArrayList<>();
 
     /**
      * Creates new form TableCoffee
@@ -31,9 +56,9 @@ public class TableCoffee extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         CodeText = new javax.swing.JTextField();
         ItemsComboBox = new javax.swing.JComboBox<>();
-        ItemsText = new javax.swing.JTextField();
+        JumlahItemsText = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        ItemsTable = new javax.swing.JTable();
+        ItemsListTable = new javax.swing.JTable();
         SaveButton = new javax.swing.JButton();
         CancelButton = new javax.swing.JButton();
         NewButton = new javax.swing.JButton();
@@ -54,7 +79,7 @@ public class TableCoffee extends javax.swing.JFrame {
             }
         });
 
-        ItemsTable.setModel(new javax.swing.table.DefaultTableModel(
+        ItemsListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -62,9 +87,14 @@ public class TableCoffee extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(ItemsTable);
+        jScrollPane1.setViewportView(ItemsListTable);
 
         SaveButton.setText("Save");
+        SaveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SaveButtonActionPerformed(evt);
+            }
+        });
 
         CancelButton.setText("Cancel");
         CancelButton.addActionListener(new java.awt.event.ActionListener() {
@@ -74,6 +104,11 @@ public class TableCoffee extends javax.swing.JFrame {
         });
 
         NewButton.setText("New");
+        NewButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewButtonActionPerformed(evt);
+            }
+        });
 
         AddButton.setText("Add");
 
@@ -100,7 +135,7 @@ public class TableCoffee extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(ItemsComboBox, 0, 223, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ItemsText, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(JumlahItemsText, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(CodeText))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -113,16 +148,17 @@ public class TableCoffee extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(CodeText, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NewButton)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(NewButton)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(AddButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ItemsComboBox, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(ItemsText))
+                    .addComponent(AddButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JumlahItemsText))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -144,6 +180,14 @@ public class TableCoffee extends javax.swing.JFrame {
     private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CancelButtonActionPerformed
+
+    private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SaveButtonActionPerformed
+
+    private void NewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewButtonActionPerformed
+        
+    }//GEN-LAST:event_NewButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,8 +229,8 @@ public class TableCoffee extends javax.swing.JFrame {
     private javax.swing.JButton CancelButton;
     private javax.swing.JTextField CodeText;
     private javax.swing.JComboBox<String> ItemsComboBox;
-    private javax.swing.JTable ItemsTable;
-    private javax.swing.JTextField ItemsText;
+    private javax.swing.JTable ItemsListTable;
+    private javax.swing.JTextField JumlahItemsText;
     private javax.swing.JButton NewButton;
     private javax.swing.JButton RemoveButton;
     private javax.swing.JButton SaveButton;
