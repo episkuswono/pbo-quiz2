@@ -65,6 +65,21 @@ public class TableCoffee extends javax.swing.JFrame {
         this.code = String.format(date, "%02d", this.id);
         return code;
     }
+    
+    // update fungsi jumlah
+    private void updateJumlah(String nama, int add){
+        boolean hasil = false;
+        ArrayList<String> item = new ArrayList<>();
+        for (int i = 0; i < tableModel.getRowCount(); i++) {
+            item.add(tableModel.getValueAt(i,0).toString());
+        }
+        for (int i = 0; i < item.size(); i++) {
+            if (item.get(i).equals(nama)) {
+                int jumlah = new Integer(tableModel.getValueAt(i, 2).toString());
+                tableModel.setValueAt(+ add, i, 2);
+            }
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
