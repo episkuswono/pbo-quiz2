@@ -95,6 +95,11 @@ public class TableCoffee extends javax.swing.JFrame {
         }
         return hasil;
     }
+    
+    // mengecek apakah ada table yang kosong
+    private boolean isKosong(){
+        return this.ItemsListTable.getModel().getRowCount() <= 0;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
