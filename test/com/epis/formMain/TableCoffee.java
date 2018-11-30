@@ -45,6 +45,16 @@ public class TableCoffee extends javax.swing.JFrame {
         this.tableModel = new DefaultTableModel(tableModel.getKolomNama(), 0);
         initComponents();
     }
+    
+    // method buat penambahan id
+    private void tambahId(){
+        this.id += 1;
+    }
+    
+    // method pengurangan id
+    private void kurangId(){
+        this.id -= 1;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
