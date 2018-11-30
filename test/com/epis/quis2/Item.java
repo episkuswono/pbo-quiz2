@@ -12,15 +12,15 @@ package com.epis.quis2;
  */
 public class Item {
     private String nama;
-    private int harga;
+    private float harga;
     private int jumlah;
 
     public Item(String nama, int jumlah) {
         this.nama = nama;
         this.jumlah = jumlah;
     }
-
-    public Item(String nama, int harga, int jumlah) {
+    
+    public Item(String nama, int jumlah, float harga) {
         this.nama = nama;
         this.harga = harga;
         this.jumlah = jumlah;
