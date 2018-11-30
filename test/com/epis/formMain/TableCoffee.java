@@ -112,6 +112,22 @@ public class TableCoffee extends javax.swing.JFrame {
             this.RemoveButton.setEnabled(true);
         }
     }
+    
+    // dapat melakukan transaksi baru jika sudah menyelesaikan transaksi sebelumnya
+    private void newTransaksi () {
+        this.JumlahItemsText.setText(" ") ;
+        this.CodeText.setText(" ") ;
+        this.NewButton.setEnabled(true) ;
+        this.SaveButton.setEnabled(false) ;
+        this.CancelButton.setEnabled(false) ;
+        this.AddButton.setEnabled(false) ;
+        this.RemoveButton.setEnabled(false) ;
+        this.RemoveButton.setEnabled(false) ;
+        this.JumlahItemsText.setEnabled(false) ;
+        this.ItemsComboBox.setEnabled(false) ;
+        this.tableModel.setRowCount(0) ;
+        this.belanja.clear() ;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
